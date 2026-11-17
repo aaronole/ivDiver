@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --bg: #faf8f5;
+  --ink: #1f2933;
+  --muted: #6b7280;
+  --line: #e7e2d9;
+  --card: #ffffff;
+  --accent: #2f5d62;
+  --accent-soft: #e6eeee;
+}
+
+html, body, [class*="stApp"] {
+  font-family: 'Inter', -apple-system, 'Segoe UI', system-ui, sans-serif;
+  color: var(--ink);
+}
+
+/* Quiet the default Streamlit chrome */
+#MainMenu, footer, [data-testid="stToolbar"], [data-testid="stDecoration"] {
+  visibility: hidden;
+  height: 0;
+}
+
+.block-container {
+  max-width: 760px;
+  padding-top: 3.5rem;
+  padding-bottom: 5rem;
+}
+
+/* Header */
+.app-title {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 600;
+  font-size: 2.6rem;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin: 0 0 0.5rem 0;
+  color: var(--ink);
+}
+.app-sub {
+  color: var(--muted);
+  font-size: 1.02rem;
+  line-height: 1.55;
+  margin: 0 0 2.2rem 0;
+}
+
+/* Result header */
+.result-head {
+  margin: 2.4rem 0 1.4rem 0;
+  padding-top: 1.6rem;
+  border-top: 1px solid var(--line);
+}
+.result-name {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 600;
+  font-size: 2rem;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+.result-meta {
+  color: var(--muted);
+  font-size: 0.88rem;
+  margin-top: 0.35rem;
+}
+
+/* Summary tiles */
+.stats {
+  display: flex;
+  gap: 0.9rem;
+  margin: 1.2rem 0 0.4rem 0;
+}
+.stat {
+  flex: 1;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0.9rem 1.1rem;
+}
+.stat-num {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1.9rem;
+  font-weight: 600;
+  line-height: 1;
+}
+.stat-label {
+  color: var(--muted);
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+  letter-spacing: 0.02em;
+}
+
+/* Sections */
+.section { margin-top: 2.6rem; }
+.section-head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+.section-head h2 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 600;
+  font-size: 1.45rem;
+  letter-spacing: -0.01em;
+  margin: 0;
+  padding: 0;
+}
+.count {
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.12rem 0.55rem;
+  border-radius: 999px;
+}
+.section-sub {
+  color: var(--muted);
+  font-size: 0.88rem;
+  margin: 0.3rem 0 0.9rem 0;
+}
+
+/* Entries */
+.entries {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.entry {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.85rem 1.1rem;
+  border-bottom: 1px solid var(--line);
+}
+.entry:last-child { border-bottom: none; }
+.opp { font-weight: 600; font-size: 0.97rem; }
+.move {
+  font-weight: 400;
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-left: 0.55rem;
+}
+.move::before { content: "· "; }
+.detail {
+  color: var(--muted);
+  font-size: 0.88rem;
+  margin-top: 0.15rem;
+}
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.35rem;
+  flex-shrink: 0;
+}
+.chip {
+  font-size: 0.74rem;
+  font-weight: 600;
+  padding: 0.18rem 0.6rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.chip.on { background: var(--accent); color: #fff; }
+.chip.maybe {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid #a9c2c3;
+  font-weight: 500;
+}
+.empty {
+  color: var(--muted);
+  font-size: 0.92rem;
+  padding: 1rem 1.1rem;
+  background: var(--card);
+  border: 1px dashed var(--line);
+  border-radius: 12px;
+}
+
+.legend {
+  color: var(--muted);
+  font-size: 0.82rem;
+  margin-top: 1.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 560px) {
+  .app-title { font-size: 2.1rem; }
+  .entry { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+  .chips { justify-content: flex-start; }
+}
